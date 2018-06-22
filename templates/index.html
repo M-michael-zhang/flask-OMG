@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OMG</title>
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <script src="../static/js/jquery-3.3.1.min.js"></script>
+    <script src="../static/js/bootstrap.js"></script>
+<script>
+$(document).ready(function(){
+
+    $(".btn1").click(function(){
+        var formData = new FormData($('#myf')[0]);
+        $(".imgdiv").empty();
+      $.ajax({
+          url:"/mylist",
+          type:"post",
+          data: formData,
+          cache: false,
+          processData: false,
+          contentType: false,
+          success:function(data){
+            $(".mytable thead tr").append($("<th></th>").append(data[0][0])).append($("<th></th>").append(data[0][1])).append($("<th></th>").append(data[0][2])).append($("<th></th>").append(data[0][3]));
+              for(var i = 1; i<data.length;i++){
+                $(".mytable tbody").append($("<tr></tr>").append($("<td></td>").append(data[i][0])).append($("<td></td>").append(data[i][1])).append($("<td></td>").append(data[i][2])).append($("<td></td>").append(data[i][3])));
+              }
+              $(".imgdiv").append("<a href=\"../static/image/figure.png\"><img src=\"../static/image/figure.png\" width=\"90%\"/></a> ")
+      }});
+
+
+   });
+});
+</script>
+<style>
+</style>
+</head>
+<body>
+    <h1 class="col-sm-offset-3 title">OMG SYSTEM</h1>
+    <div class="col-sm-4 col-sm-offset-4 mydiv" align="center">
+        <a href="http://classwork.readthedocs.io/en/latest/index.html"> <button class="btn btn-info" style="float: left;margin-left: 30px;">READ SRS</button></a>
+         <form id="myf" style="float: left;width: 150px">
+        <input type="file" name="genes" id="InputFile"/>
+            <p class="help-block">please choose a txt file.</p>
+        </form>
+    <button class="btn1 btn btn-info" >go</button>
+    </div>
+
+<form class="form col-sm-6 col-sm-offset-3">
+    <table class="table table-hover table-bordered mytable">
+        <thead>
+        <tr>
+
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+
+    </table>
+</form>
+<div class="col-sm-6 col-sm-offset-3 imgdiv">
+
+</div>
+</body>
+</html>
