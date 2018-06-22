@@ -26,7 +26,7 @@ def paint(matrix):
         for i in matrix:
             v1 = float(i[1])
             v2 = float(i[2])
-            if (int(v1) <= 2000 and int(v2) < 2000 and int(v1) > 0 and int(v2) > 0 and ( 0.5 <(v2 / (v1)) < 1.5)):
+            if (int(v1) <= 2000 and int(v2) < 2000 and int(v1) > 0 and int(v2) > 0 and ( 0.9 <(v2 / (v1)) < 1.1)):
                 if (v1 < v2):
                     plt.scatter(v1, v2, c="#FF0000")
                 else:

@@ -29,7 +29,8 @@ def mylist():
         matrix[i][0] = str1.split()[0]
         matrix[i][1] = str1.split()[1]
         matrix[i][2] = str1.split()[2]
-    paint.paint(matrix)
+    if(myindex==1):
+        paint.paint(matrix)
     out_matrix[0][0] = "gene_id      "
     out_matrix[0][1] = "control_sample    "
     out_matrix[0][2] = "treat_sample  "
